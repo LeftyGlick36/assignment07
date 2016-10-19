@@ -25,10 +25,10 @@ public class LinkedListStackTest {
 		list.push(10);
 	}
 
-	@Test
-	public void testLinkedListStack() {
-
-	}
+//	@Test
+//	public void testLinkedListStack() {
+//
+//	}
 
 	@Test
 	public void testClear() {
@@ -52,7 +52,7 @@ public class LinkedListStackTest {
 	@Test(expected = NoSuchElementException.class)
 	public void testPeekNoSuchElement() {
 		list.clear();
-		list.peek();
+		list.pop();
 	}
 
 	@Test

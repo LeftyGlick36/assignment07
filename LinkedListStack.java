@@ -1,8 +1,7 @@
 package assignment07;
 
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
-
-import assignment06.DoublyLinkedList;
 
 /**
  * Represents a generic stack (first in, last out).
@@ -26,10 +25,10 @@ import assignment06.DoublyLinkedList;
  */
 public class LinkedListStack<E> {
 
-	private DoublyLinkedList<E> stack;
+	private LinkedList<E> stack;
 
 	public LinkedListStack() {
-		stack = new DoublyLinkedList<E>();
+		stack = new LinkedList<E>();
 	}
 
 	/**
@@ -37,19 +36,14 @@ public class LinkedListStack<E> {
 	 */
 	public void clear() {
 
-		while (stack.size() > 0) {
-			stack.clear();
-		}
+		stack.clear();
 	}
 
 	/**
 	 * Returns true if the stack contains no elements.
 	 */
 	public boolean isEmpty() {
-		if (!stack.isEmpty()) {
-			return false;
-		}
-		return true;
+		return stack.isEmpty();
 	}
 
 	/**
@@ -57,8 +51,7 @@ public class LinkedListStack<E> {
 	 * stack. Throws NoSuchElementException if the stack is empty.
 	 */
 	public E peek() throws NoSuchElementException {
-		emptyStack();
-		return stack.getFirst();
+		return stack.peek();
 	}
 
 	/**
@@ -66,15 +59,14 @@ public class LinkedListStack<E> {
 	 * NoSuchElementException if the stack is empty.
 	 */
 	public E pop() throws NoSuchElementException {
-		emptyStack();
-		return stack.removeFirst();
+		return stack.pop();
 	}
 
 	/**
 	 * Pushes the input item onto the top of the stack.
 	 */
 	public void push(E item) {
-		stack.addFirst(item);
+		stack.push(item);
 	}
 
 	/**
@@ -82,11 +74,5 @@ public class LinkedListStack<E> {
 	 */
 	public int size() {
 		return stack.size();
-	}
-
-	private void emptyStack() {
-		if (stack.isEmpty()) {
-			throw new NoSuchElementException();
-		}
 	}
 }
